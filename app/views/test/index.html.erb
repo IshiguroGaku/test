@@ -1,0 +1,9 @@
+<html>
+<body>
+	<%= @user.each do |u| %>
+		<%= link_to u.id, test_path(u.id), :method => "delete" %>
+	<% end %>
+
+ <%= link_to 'new', new_test_path %>
+</body>
+</html>

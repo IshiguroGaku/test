@@ -1,0 +1,26 @@
+
+ <%= form_for :user, :url => {:action => "create"} do |usr| %>
+
+	<%= fields_for @address do |addr| %>
+	<%= fields_for @fax do |f| %>
+	<%= fields_for @tran do |t| %>
+		user_id: <%= usr.text_field :userid %>
+        user_name: <%= usr.text_field :username %>
+<br>
+		address: <%= addr.text_field :longname %>
+		postcode: <%= addr.text_field :postcode %>
+<br>
+		case_no: <%= f.text_field :case_no %>
+		name: <%= f.text_field :name %>
+<br>
+		tran_no: <%= t.text_field :tran_no %>
+
+	<% end %>
+	<% end %>
+	<% end %>
+	<%= submit_tag %>
+ <% end %>
+ <%= form_tag({:action => "upload"}, {:multipart => true}) do %>
+ 	<%= file_field "file", "jpg" %>
+ 	<%= submit_tag %>
+ <% end %>
