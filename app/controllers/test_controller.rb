@@ -34,8 +34,8 @@ class TestController < ApplicationController
 
   def upload
 #    file = params[:file][:jpg]
-    date = Time.now
-    File.open(Rails.root.to_s + "/tmp/file/" + date.strftime("%Y%m%d") + "/" + params[:file][:jpg].original_filename, "wb") do |f|
+    date = Time.now.strftime("%Y%m%d") + "/"
+    File.open(Rails.root.to_s + "/tmp/file/" + params[:file][:jpg].original_filename, "wb") do |f|
 #      File.open(Rails.root.to_s + "/tmp/file/" + params[:file][:jpg].original_filename) do |f|
       f.write(params[:file][:jpg].read)
     end
